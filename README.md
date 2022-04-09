@@ -5,7 +5,7 @@
 * custom_data (user-compiled data sets)
   - [x] `uscities.csv`
   - [ ] `industry_codes.csv`
-  - [ ] `job_estimates_by_state.csv`
+  - [x] `estimates_by_state.csv`
 * webpage_data (to store raw html)
 * job_url_data (to store job urls)
 
