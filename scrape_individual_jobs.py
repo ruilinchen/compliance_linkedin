@@ -14,6 +14,7 @@ password_key = keyring.get_password('linkedin', 'password')
 
 TODAY = str(int(datetime.today().strftime("%m%d%Y")))
 OUTPUT_FILENAME = 'estimates_by_state.csv'
+INPUT_FILENAME = 'job_url_data/job_title_URLs.csv'
 
 def check_exists_by_xpath(driver, xpath):
     try:
@@ -48,16 +49,17 @@ time.sleep(1)
 login_btn.click()
 
 ### iterate over the list of urls
-job_df = pd.read_csv('job_url_data/job_title_URLs.csv')
+job_df = pd.read_csv(INPUT_FILENAME)
 job_df['job_id'] = job_df['url'].str.split('/').str[5] # extract job_id from url
 job2url = dict(zip(job_df['job_id'], job_df['url']))
 for job_id, job_url in job2url.items():
     time.sleep(random.random()*3)
     driver.get(job_url)
-    see_more_xpath = "//button[@aria-label='Click to see more description']"
+    see_more_xpath = "//button[@aria-label='Click to see more description']" # click the see more button
     see_more_btn = driver.find_element_by_xpath(see_more_xpath)
     see_more_btn.click()
     page_source = driver.page_source
     with open(f"webpage_data/{job_id}.html", "w") as f:
         f.write(page_source)
+
 driver.close()
