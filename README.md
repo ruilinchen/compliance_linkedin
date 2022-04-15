@@ -8,8 +8,8 @@
   - [x] `estimates_by_state.csv`
 * webpage_data (to store raw html)
 * job_url_data (to store job urls)
-
+* `job_infos_v1.csv` (final data file: a sample)
 ### Scripts:
 - [ ] `get_job_urls.py`
-- [ ] `get_webpage_by_url.py`
-- [ ] `extract_information_from_webpage.py`
+- [x] `scrape_individual_jobs.py`
+- [x] `process_individual_jobs.py`
