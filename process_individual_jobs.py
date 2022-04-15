@@ -6,6 +6,8 @@ import pandas as pd
 import os
 from lxml import etree
 
+OUTPUT_NAME = 'job_infos_v1.csv'
+
 html_files = [x for x in os.listdir('webpage_data') if x[-5:] == '.html']
 job_df = pd.DataFrame(columns=['job_id', 'title', 'company', 'company_url', 'location', 'seniority', 'full_time', 'company_size', 'industry', 'recruitment_status', 'job_description'])
 
@@ -55,4 +57,4 @@ for html_file in html_files:
         job_dict['job_description'] = job_about_text.strip()
 
         job_df = job_df.append(job_dict, ignore_index=True)
-job_df.to_csv('job_infos_v1.csv', index=False)
+job_df.to_csv(OUTPUT_NAME, index=False)
