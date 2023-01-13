@@ -1,4 +1,4 @@
-Folder structure that is used throughout the experiment:
+Folder structure that is used throughout the experiment but is not set up here:
 * `labelled_data`: where all the hand-coded data goes
 * `job_info_data`: where all the scraped raw csv files go
 * `data_for_filtering`: where the cleaned raw data + intermediary results from the experiment go
